@@ -136,11 +136,11 @@ class Pandorabots:
             return self.no_botname_error
         if not 'message' in input:
             return self.no_message_error
-        path = '/atalk'
+        path = '/talk'
         if (not usebotkey):
             path += '/' + self.app_id + '/' + self.botname
         url = "https://" + self.host + path
-        query = {"user_key": self.user_key}
+        query = {"user_key": self.user_key, "input": input['message']}
         if usebotkey:
             query['botkey'] = self.botkey
         else:
